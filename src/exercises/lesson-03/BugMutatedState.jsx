@@ -13,8 +13,8 @@ export default function BugMutatedState() {
   let [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    //setCount(count+1);  - this is option 1
+    setCount((previousCount) => previousCount + 1); //this is option 2
   }
 
   return (
@@ -26,4 +26,9 @@ export default function BugMutatedState() {
 }
 
 // Explanation:
-// (Write your explanation here)
+// The state variable `count` was mutated directly using `count++`.
+// In React, state should be treated as immutable and never modified directly.
+// Instead, we should use the state setter function `setCount` to update the value.
+// The correct approach is to use `setCount(count + 1)` or
+// the functional update form `setCount(previousCount => previousCount + 1)`,
+// that ensures we  work with the latest state value.
