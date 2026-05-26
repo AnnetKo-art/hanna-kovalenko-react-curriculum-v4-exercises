@@ -1,5 +1,4 @@
-const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
-
+//This is where the functions used to fetch posts will live.
 /**
  * Instructions:
  * The `POSTS_ENDPOINT` url returns a list of post objects
@@ -15,40 +14,23 @@ const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
  * Try pasting those URLs into your browser to see the results!
  */
 
-/**
- * Should return an array of posts with the following properties:
- * - userId
- * - id
- * - title
- * - body
- */
+const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
 export function getPosts() {
   console.log('[getPosts]: fetching list of posts');
+  //Option 1 - when I render all posts or I want to limit till ten posts using method slice in FetchOnRender.jsx
+  // Or it is also to display all posts.
+  //const url = POSTS_ENDPOINT;
 
-  // TODO: use this `url` const to fetch the list of posts
-  // and return some JSON data.
-  // You may delete this comment once you've finished the implementation.
-  // eslint-disable-next-line no-unused-vars
-  const url = POSTS_ENDPOINT;
+  //Option 2 - to display only 10 posts  using query parameter STRETCH GOAL
+  const url = `${POSTS_ENDPOINT}?_limit=10`;
+  return fetch(url).then((response) => response.json());
 }
 
-/**
- * Should return a single post object with the following properties:
- * - userId
- * - id
- * - title
- * - body
- */
 export function getSinglePost(postId) {
   if (!postId) {
     throw new Error('[getSinglePost]: postId parameter is required!');
   }
-
   console.log('[getSinglePost]: fetching post with id:', postId);
-
-  // TODO: use this `url` const to fetch the single post
-  // and return some JSON data.
-  // You may delete this comment once you've finished the implementation.
-  // eslint-disable-next-line no-unused-vars
   const url = `${POSTS_ENDPOINT}${postId}`;
+  return fetch(url).then((response) => response.json());
 }

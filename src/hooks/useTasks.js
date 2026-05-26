@@ -1,5 +1,6 @@
 //Custom hook that moves reusable React logic out of the component
 //This hook is responsible for storing tasks/storing loading state/fetching/simulating data/returning the data to components
+
 import { useEffect, useState } from 'react';
 
 export default function useTasks() {
