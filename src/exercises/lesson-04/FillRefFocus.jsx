@@ -6,9 +6,6 @@ import { useRef } from 'react';
 export default function FillRefFocus() {
   const inputRef = useRef(null);
 
-  // function focusInput() {}
-
-  //Added by me
   const focusInput = () => {
     // Access the DOM element directly
     if (inputRef.current) {
@@ -19,10 +16,15 @@ export default function FillRefFocus() {
   return (
     <div>
       <h2>useRef: Focusing an Input</h2>
-
       <input ref={inputRef} type="text" placeholder="Type here..." />
 
       <button onClick={focusInput}>Focus Input</button>
     </div>
   );
 }
+
+//Explanation
+
+//useRef(null) creates a ref object: { current: null }.
+//When passed to a JSX element’s ref attribute, React sets .current to that DOM node.
+//Calling inputRef.current.focus() directly manipulates the DOM without re-rendering.
