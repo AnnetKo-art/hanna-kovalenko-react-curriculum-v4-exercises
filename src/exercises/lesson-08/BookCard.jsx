@@ -1,3 +1,4 @@
+import { memo } from 'react'; // 1. Import memo
 import {
   useRenderCounter,
   RenderCounter,
@@ -32,4 +33,4 @@ function BookCard({ book, isFavorite, onToggleFavorite }) {
   );
 }
 
-export default BookCard;
+export default memo(BookCard);
