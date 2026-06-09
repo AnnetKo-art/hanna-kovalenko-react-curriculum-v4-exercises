@@ -17,7 +17,7 @@ export default function Home({ products }) {
       >
         {products.map((p) => (
           <Link
-            to={`/products/${p.id}`}
+            to={`products/${p.id}`}
             key={p.id}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >

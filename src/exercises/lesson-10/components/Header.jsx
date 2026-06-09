@@ -19,7 +19,7 @@ export default function Header({ user }) {
         <NavLink to="/" style={navLinkStyles}>
           Home
         </NavLink>
-        <NavLink to="/checkout" style={navLinkStyles}>
+        <NavLink to="checkout" style={navLinkStyles}>
           Checkout
         </NavLink>
 
