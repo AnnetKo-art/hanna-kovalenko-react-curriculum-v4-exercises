@@ -151,7 +151,7 @@ export function surveyReducer(state, action) {
         ...state,
         questions: state.questions.map((q) => {
           if (q.id === action.payload.questionId) {
-            // Ensure at least 2 options remain (из требований задания)
+            // Ensure at least 2 options remain
             if (q.options.length <= 2) return q;
             return {
               ...q,
